@@ -1,0 +1,45 @@
+local Library = {}
+
+function Library.CreateMain()
+	local ScreenGui = Instance.new("ScreenGui")
+	local Frame = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+	
+	ScreenGui.Parent = game.CoreGui
+
+	Frame.Parent = ScreenGui
+	Frame.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+	Frame.Position = UDim2.new(0.240698561, 0, 0.183600709, 0)
+	Frame.Size = UDim2.new(0, 529, 0, 368)
+	
+	UIListLayout.Parent = Frame
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+	
+	local GameLibrary = {}
+	
+	function GamerLibrary:Button(name, callback)
+		
+		local TextButton = Instance.new("TextButton")
+		
+		TextBox.Name = name
+		TextBox.Text = name
+		TextBox.Parent = Frame
+		TextButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+		TextButton.Position = UDim2.new(0, 0, 0.111413047, 0)
+		TextButton.Size = UDim2.new(0, 200, 0, 50)
+		TextButton.Font = Enum.Font.SourceSans
+		TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextButton.TextScaled = true
+		TextButton.TextSize = 35.000
+		TextButton.TextWrapped = true
+		
+		Frame:FindFirstChild(name).MouseButton1Click:connect(callback)
+	end
+	
+	return GameLibrary
+	
+end
+
+return Library
