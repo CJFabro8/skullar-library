@@ -1,0 +1,17 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Skullar - Chaos", "Ocean")
+
+local Tab = Window:NewTab("Main")
+
+local Section = Tab:NewSection("Idk")
+
+Section:NewButton("Get Gamepass", "Get Gamepasses for free!", function()
+    local Old;
+Old = hookmetamethod(game, "__namecall", function(...)
+   if not checkcaller() and getnamecallmethod() == "UserOwnsGamePassAsync" then
+       return true
+   end
+   return Old(...)
+end)
+end)
